@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "zerp"
 name = "MultiDressHelper"
-versionNumber = "1.13.3"
+versionNumber = "1.0.0"
 description = "Helper mod which fixes some issues when acquiring multiple Arachne boons at once. Meant to be used by/with other mods which allow such a scenario to occur."
 websiteUrl = "https://github.com/adi1998/H2-MultiDressHelper"
 containsNsfwContent = false
