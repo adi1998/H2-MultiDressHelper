@@ -10,4 +10,4 @@ It is recommended to backup your save from `%USERPROFILE%\Saved Games\Hades II\P
 
 ## Issues and feedback
 
-Report any issues or feedback [here](https://github.com/adi1998/DreamDiveTweaks/issues) or on [Discord](https://discord.gg/KuMbyrN).
+Report any issues or feedback [here](https://github.com/adi1998/H2-MultiDressHelper/issues) or on [Discord](https://discord.gg/KuMbyrN).
