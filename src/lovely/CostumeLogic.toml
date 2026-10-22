@@ -1,0 +1,48 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "CostumeLogic.lua"
+pattern = '''
+if traitData.CostumeTrait and traitData.SetupFunction and traitData.SetupFunction.Args and traitData.SetupFunction.Args.Source == args.Source then
+'''
+position = "at"
+payload = '''
+--#region Modified by MultiDressHelper
+if traitData.CostumeTrait and traitData.SetupFunction and traitData.SetupFunction.Args and traitData.SetupFunction.Args.Source == args.Source and traitData.Name == args.MultiDressHelper_TraitName then
+--#endregion
+'''
+match_indent = true
+times = 1
+
+[[patches]]
+[patches.pattern]
+target = "CostumeLogic.lua"
+pattern = '''
+if setupFunctionData.Name == "CostumeArmor" and setupFunctionData.Args and setupFunctionData.Args.Source == args.Source then
+'''
+position = "at"
+payload = '''
+--#region Modified by MultiDressHelper
+if setupFunctionData.Name == "CostumeArmor" and setupFunctionData.Args and setupFunctionData.Args.Source == args.Source and traitData.Name == args.MultiDressHelper_TraitName then
+--#endregion
+'''
+match_indent = true
+times = 1
+
+[[patches]]
+[patches.pattern]
+target = "CostumeLogic.lua"
+pattern = '''
+SetThingProperty({ Property = "GrannyTexture", Value = costumes[1], DestinationId = CurrentRun.Hero.ObjectId })
+'''
+position = "at"
+payload = '''
+--#region Modified by MultiDressHelper
+SetThingProperty({ Property = "GrannyTexture", Value = costumes[#costumes], DestinationId = CurrentRun.Hero.ObjectId })
+--#endregion
+'''
+match_indent = true
+times = 1

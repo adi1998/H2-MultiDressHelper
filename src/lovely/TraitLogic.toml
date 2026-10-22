@@ -1,0 +1,35 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "TraitLogic.lua"
+pattern = '''
+if ( not setupFunctionData.RunOnce or not isDuplicate ) and not setupFunctionData.SkipSetupOnAdd then
+'''
+position = "after"
+payload = '''
+    --#region inserted by MultiDressHelper to track trait names for SetupFunctions
+    setupFunctionData.Args = setupFunctionData.Args or {}
+    setupFunctionData.Args["MultiDressHelper_TraitName"] = newTrait.Name
+    --#endregion
+'''
+match_indent = true
+times = 1
+
+[[patches]]
+[patches.pattern]
+target = "TraitLogic.lua"
+pattern = '''
+if not setupFunctionData.RunOnce or appliedFunctionNames[setupFunctionData.Name] == nil then
+'''
+position = "after"
+payload = '''
+    --#region inserted by MultiDressHelper to track trait names for SetupFunctions
+    setupFunctionData.Args = setupFunctionData.Args or {}
+    setupFunctionData.Args["MultiDressHelper_TraitName"] = trait.Name
+    --#endregion
+'''
+match_indent = true
+times = 1
